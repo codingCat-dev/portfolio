@@ -10,7 +10,9 @@ const Header = () => {
           <h2 className="border-green-500 border">text longer</h2>
           <h2 className="border-green-500 border">text longer two</h2>
         </div>
-        <div className="border  border-red-500 col-span-2">hi</div>
+        <div className="border  border-red-500 col-span-2 flex justify-center items-center ">
+          some-image
+        </div>
       </header>
       <div className="grid grid-cols-2  text-xl">
         <div className="border border-blue-500">
