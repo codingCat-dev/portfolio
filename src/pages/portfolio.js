@@ -1,48 +1,73 @@
 import React, { useState, useCallback } from "react"
 import ImageViewer from "react-simple-image-viewer"
-import { StaticImage } from "gatsby-plugin-image"
+import { useStaticQuery, graphql } from "gatsby"
+
 import Seo from "../components/seo"
 import Layout from "../components/layout"
 
 const Portfolio = () => {
+  const data = useStaticQuery(graphql`
+    query myImages {
+      allFile(
+        filter: {
+          extension: { regex: "/(jpg)|(png)/" }
+          relativeDirectory: { eq: "portfolio" }
+        }
+      ) {
+        edges {
+          node {
+            id
+            base
+            childImageSharp {
+              fluid {
+                base64
+                src
+                srcSet
+                sizes
+              }
+            }
+          }
+        }
+      }
+    }
+  `)
+
+  const allImages = data.allFile.edges.map(
+    ({ node }) => node.childImageSharp.fluid
+  )
+
   const [currentImage, setCurrentImage] = useState(0)
   const [isViewerOpen, setIsViewerOpen] = useState(false)
 
-  const images = [
-    "http://placeimg.com/1200/800/nature",
-    "http://placeimg.com/800/1200/nature",
-    "http://placeimg.com/1920/1080/nature",
-    "http://placeimg.com/1500/500/nature",
-    "/static/8dbe7bb08d3f5ed9318249463df1cce7/a468c/image1.jpg",
-  ]
   const openImageViewer = useCallback(index => {
     setCurrentImage(index)
     setIsViewerOpen(true)
   }, [])
+
   const closeImageViewer = () => {
     setCurrentImage(0)
     setIsViewerOpen(false)
   }
-
+  const imageSrc = allImages.map(item => item.src)
+  console.log(allImages)
   return (
     <Layout>
       <Seo title="portfolio" />
-      <div>
-        {images.map((src, index) => (
+      <h1>title</h1>
+      <div className="grid grid-cols-4 gap-2">
+        {allImages.map((image, index) => (
           <img
-            className="cursor-pointer"
-            src={src}
+            className="cursor-pointer w-full"
+            src={image.src}
             onClick={() => openImageViewer(index)}
-            width="300"
-            key={index}
-            style={{ margin: "2px" }}
-            alt=""
+            key={image.base64}
+            alt="Portfolio images"
           />
         ))}
 
         {isViewerOpen && (
           <ImageViewer
-            src={images}
+            src={imageSrc}
             currentIndex={currentImage}
             disableScroll={false}
             closeOnClickOutside={true}
@@ -50,89 +75,8 @@ const Portfolio = () => {
           />
         )}
       </div>
-      {/* <img
-        src="/static/8dbe7bb08d3f5ed9318249463df1cce7/a468c/image1.jpg"
-        alt=""
-      /> */}
-      {/* <h1>Portfolio</h1>
-      <div className="grid grid-cols-8 gap-5 my-8">
-        <div className="col-span-2">
-          <StaticImage src="../images/image1.jpg" />
-        </div>
-        <div className="col-span-3">
-          <StaticImage src="../images/image1.jpg" />
-        </div>
-        <div className="col-span-1">
-          <StaticImage src="../images/image1.jpg" />
-        </div>
-
-        <StaticImage src="../images/image1.jpg" />
-        <StaticImage src="../images/image1.jpg" />
-        <StaticImage src="../images/image1.jpg" />
-        <StaticImage src="../images/image1.jpg" />
-        <StaticImage src="../images/image1.jpg" />
-        <StaticImage src="../images/image1.jpg" />
-        <StaticImage src="../images/image1.jpg" />
-        <StaticImage src="../images/image1.jpg" />
-        <StaticImage src="../images/image1.jpg" />
-        <StaticImage src="../images/image1.jpg" />
-        <StaticImage src="../images/image1.jpg" />
-        <StaticImage src="../images/image1.jpg" />
-        <StaticImage src="../images/image1.jpg" />
-        <StaticImage src="../images/image1.jpg" />
-        <StaticImage src="../images/image1.jpg" />
-        <StaticImage src="../images/image1.jpg" />
-        <StaticImage src="../images/image1.jpg" />
-        <StaticImage src="../images/image1.jpg" />
-        <StaticImage src="../images/image1.jpg" />
-        <StaticImage src="../images/image1.jpg" />
-        <StaticImage src="../images/image1.jpg" />
-        <StaticImage src="../images/image1.jpg" />
-        <StaticImage src="../images/image1.jpg" />
-      </div>
-      <h1>Svatby</h1>
-      <div className="grid grid-cols-8 gap-2 my-8">
-        <StaticImage src="../images/image1.jpg" />
-        <StaticImage src="../images/image1.jpg" />
-        <StaticImage src="../images/image1.jpg" />
-        <StaticImage src="../images/image1.jpg" />
-        <StaticImage src="../images/image1.jpg" />
-        <StaticImage src="../images/image1.jpg" />
-        <StaticImage src="../images/image1.jpg" />
-        <StaticImage src="../images/image1.jpg" />
-        <StaticImage src="../images/image1.jpg" />
-        <StaticImage src="../images/image1.jpg" />
-        <StaticImage src="../images/image1.jpg" />
-        <StaticImage src="../images/image1.jpg" />
-        <StaticImage src="../images/image1.jpg" />
-        <StaticImage src="../images/image1.jpg" />
-        <StaticImage src="../images/image1.jpg" />
-        <StaticImage src="../images/image1.jpg" />
-        <StaticImage src="../images/image1.jpg" />
-        <StaticImage src="../images/image1.jpg" />
-        <StaticImage src="../images/image1.jpg" />
-        <StaticImage src="../images/image1.jpg" />
-        <StaticImage src="../images/image1.jpg" />
-        <StaticImage src="../images/image1.jpg" />
-        <StaticImage src="../images/image1.jpg" />
-        <StaticImage src="../images/image1.jpg" />
-      </div> */}
     </Layout>
   )
 }
 
 export default Portfolio
-
-// import { useStaticQuery, graphql } from "gatsby"
-
-// const data = useStaticQuery(graphql`
-//   query MyQuery {
-//     allFile {
-//       nodes {
-//         relativePath
-//       }
-//     }
-//   }
-// `)
-// console.log(data)
-// console.log(allImages)

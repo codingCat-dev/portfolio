@@ -10,7 +10,7 @@ const Layout = props => {
   return (
     <>
       {loading ? (
-        <div className="container xl mx-auto">
+        <div className="container xl mx-auto font-serif">
           <Navigation />
           {/* <Header /> */}
           <main>{props.children}</main>
