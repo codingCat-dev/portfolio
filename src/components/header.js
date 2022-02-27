@@ -1,33 +1,44 @@
 import * as React from "react"
+import TypeWriterEffect from "react-typewriter-effect"
+
 // import { StaticImage } from "gatsby-plugin-image"
 
 const Header = () => {
+  const words = ["first", "second", "third"]
+
   return (
     <>
-      <header className="border border-gray-500  grid grid-cols-6 py-12 ">
-        <div className="col-span-4 text-9xl font-serif">
-          <h2 className="border-green-500 border">text</h2>
-          <h2 className="border-green-500 border">text longer</h2>
-          <h2 className="border-green-500 border">text longer two</h2>
+      <header className=" flex items-center py-12 mt-24 ">
+        <div className="text-9xl font-sans font-light">
+          <h1>text</h1>
+          <TypeWriterEffect
+            startDelay={0}
+            hideCursorAfterText={true}
+            cursorColor="#bbb"
+            multiText={words}
+            loop={true}
+            nextTextDelay={1500}
+            typeSpeed={80}
+          />
+          <h1>text Longer two</h1>
         </div>
-        <div className="border  border-red-500 col-span-2 flex justify-center items-center ">
-          some-image
+        <div className="m-auto">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-12 w-12 animate-bounce"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={1}
+              d="M19 13l-7 7-7-7m14-8l-7 7-7-7"
+            />
+          </svg>
         </div>
       </header>
-      <div className="grid grid-cols-2  text-xl">
-        <div className="border border-blue-500">
-          <h3>Hello i'm name lastname</h3>
-        </div>
-        <div className="border border-blue-300">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia odio
-          dolores earum autem sapiente eligendi quisquam ipsa tenetur suscipit
-          explicabo! Lorem ipsum, dolor sit amet consectetur
-          <br />
-          <br />
-          Excepturi, facilis distinctio aspernatur maiores totam quis pariatur
-          quo sequi autem id sed error laudantium nesciunt ex mollitia, nam,
-        </div>
-      </div>
     </>
   )
 }
