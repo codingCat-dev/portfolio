@@ -6,6 +6,8 @@ import Seo from "../components/seo"
 import Layout from "../components/layout"
 
 const Portfolio = () => {
+  const [currentImage, setCurrentImage] = useState(0)
+  const [isViewerOpen, setIsViewerOpen] = useState(false)
   const data = useStaticQuery(graphql`
     query myImages {
       allFile(
@@ -32,34 +34,45 @@ const Portfolio = () => {
     }
   `)
 
-  const allImages = data.allFile.edges.map(
-    ({ node }) => node.childImageSharp.fluid
-  )
-
-  const [currentImage, setCurrentImage] = useState(0)
-  const [isViewerOpen, setIsViewerOpen] = useState(false)
-
-  const openImageViewer = useCallback(index => {
+  const onOpenViewer = useCallback(index => {
     setCurrentImage(index)
     setIsViewerOpen(true)
   }, [])
 
-  const closeImageViewer = () => {
+  const onCloseViewer = () => {
     setCurrentImage(0)
     setIsViewerOpen(false)
   }
+
+  const allImages = data.allFile.edges.map(
+    ({ node }) => node.childImageSharp.fluid
+  )
+
   const imageSrc = allImages.map(item => item.src)
-  console.log(allImages)
+
   return (
     <Layout>
       <Seo title="portfolio" />
-      <h1>title</h1>
-      <div className="grid grid-cols-4 gap-2">
+      <div className="grid grid-cols-2 my-24 ">
+        <div className="">
+          <h2>Hello i'm name lastname</h2>
+        </div>
+        <div>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia odio
+          dolores earum autem sapiente eligendi quisquam ipsa tenetur suscipit
+          explicabo! Lorem ipsum, dolor sit amet consectetur
+          <br />
+          <br />
+          Excepturi, facilis distinctio aspernatur maiores totam quis pariatur
+          quo sequi autem id sed error laudantium nesciunt ex mollitia, nam,
+        </div>
+      </div>
+      <div className="grid grid-cols-4 gap-4 my-24">
         {allImages.map((image, index) => (
           <img
             className="cursor-pointer w-full"
             src={image.src}
-            onClick={() => openImageViewer(index)}
+            onClick={() => onOpenViewer(index)}
             key={image.base64}
             alt="Portfolio images"
           />
@@ -71,7 +84,7 @@ const Portfolio = () => {
             currentIndex={currentImage}
             disableScroll={false}
             closeOnClickOutside={true}
-            onClose={closeImageViewer}
+            onClose={onCloseViewer}
           />
         )}
       </div>

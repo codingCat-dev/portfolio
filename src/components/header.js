@@ -8,7 +8,7 @@ const Header = () => {
 
   return (
     <>
-      <header className=" flex items-center py-12 mt-24 ">
+      <header className=" flex items-center py-12 mt-24  ">
         <div className="text-9xl font-sans font-light">
           <h1>text</h1>
           <TypeWriterEffect
