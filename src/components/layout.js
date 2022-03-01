@@ -1,9 +1,11 @@
 import React, { useState } from "react"
 import Navigation from "./navigation"
-import Header from "./header"
+import Footer from "../components/footer"
 import Loading from "./loading"
+
 const Layout = props => {
   const [loading, setLoading] = useState(false)
+
   setTimeout(() => {
     setLoading(true)
   }, 1)
@@ -12,8 +14,8 @@ const Layout = props => {
       {loading ? (
         <div className="container xl mx-auto font-serif">
           <Navigation />
-          {/* <Header /> */}
           <main>{props.children}</main>
+          <Footer />
         </div>
       ) : (
         <Loading />

@@ -2,49 +2,35 @@ import * as React from "react"
 import { Link } from "gatsby"
 
 const Navigation = () => {
+  const navigationLinks = [
+    { linkName: "Domů", path: "../" },
+    { linkName: "Portfolio", path: "../portfolio" },
+    { linkName: "Kontakt", path: "../contact" },
+  ]
+
   return (
-    <div className="relative">
-      <nav className="grid grid-cols-6 items-center py-8  ">
-        <div className=" col-span-3">
-          {/* <h1>alžběta.římanová</h1>*/}
-          <h1>
-            firstname
-            <span className="animate-bounce text-2xl  text-blue-400 inline-block">
-              .
-            </span>
-            lastname
-          </h1>
-        </div>
-        <div className=" col-span-3">
-          <ul className="flex justify-end ">
-            <li className="mr-2">
-              <Link
-                to="../"
-                // activeClassName="text-blue-400 animate-bounce inline-block "
-              >
-                home
+    <nav className="flex items-baseline justify-between font-sans font-light py-8 ">
+      <div>
+        <h2>
+          alžběta
+          <span className="animate-bounce text-4xl text-sky-600 inline-block">
+            .
+          </span>
+          římanová
+        </h2>
+      </div>
+      <div>
+        <ul className="flex ">
+          {navigationLinks.map(link => (
+            <li className="m-1 md:mx-1">
+              <Link to={link.path} activeClassName="text-sky-600">
+                {link.linkName}
               </Link>
             </li>
-            <li className="mr-2">
-              <Link
-                to="../portfolio"
-                // activeClassName="text-blue-400 animate-bounce inline-block"
-              >
-                portfolio
-              </Link>
-            </li>
-            <li className="mr-2 ">
-              <Link
-                to="../contact"
-                // activeClassName="text-blue-400 animate-bounce inline-block"
-              >
-                contact
-              </Link>
-            </li>
-          </ul>
-        </div>
-      </nav>
-    </div>
+          ))}
+        </ul>
+      </div>
+    </nav>
   )
 }
 
