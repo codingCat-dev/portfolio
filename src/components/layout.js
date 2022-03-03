@@ -1,6 +1,6 @@
 import React, { useState } from "react"
-import Navigation from "./navigation"
-import Footer from "../components/footer"
+// import Navigation from "./navigation"
+// import Footer from "../components/footer"
 import Loading from "./loading"
 
 const Layout = props => {
@@ -12,10 +12,10 @@ const Layout = props => {
   return (
     <>
       {loading ? (
-        <div className="container xl mx-auto font-serif">
-          <Navigation />
+        <div className="mx-auto font-serif">
+          {/* <Navigation /> */}
           <main>{props.children}</main>
-          <Footer />
+          {/* <Footer /> */}
         </div>
       ) : (
         <Loading />
