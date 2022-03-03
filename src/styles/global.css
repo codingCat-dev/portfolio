@@ -1,5 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Serif+Display&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Cormorant&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -11,7 +10,3 @@ html {
 h1 {
   font-family: "Noto Serif Display", serif;
 }
-/* 
-h1 {
-  font-family: "Cormorant", serif;
-} */
