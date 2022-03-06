@@ -1,25 +1,15 @@
 import React, { useState } from "react"
-// import Navigation from "./navigation"
-// import Footer from "../components/footer"
-import Loading from "./loading"
+import Navigation from "./navigation"
+import Footer from "../components/footer"
 
 const Layout = props => {
-  const [loading, setLoading] = useState(false)
-
-  setTimeout(() => {
-    setLoading(true)
-  }, 1)
   return (
     <>
-      {loading ? (
-        <div className="mx-auto font-serif">
-          {/* <Navigation /> */}
-          <main>{props.children}</main>
-          {/* <Footer /> */}
-        </div>
-      ) : (
-        <Loading />
-      )}
+      <div className="overflow-hidden text-center">
+        <Navigation />
+        <main className="mx-auto container ">{props.children}</main>
+        <Footer />
+      </div>
     </>
   )
 }

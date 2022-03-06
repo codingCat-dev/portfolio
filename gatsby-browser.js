@@ -1,5 +1,5 @@
 import "./src/styles/global.css"
-
+import "@fontsource/noto-serif-display"
 /**
  * Implement Gatsby's Browser APIs in this file.
  *
