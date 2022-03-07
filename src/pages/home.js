@@ -7,9 +7,9 @@ import Article from "../components/article"
 const Home = () => {
   return (
     <Layout>
-      <div className="my-12 lg:mt-32 ">
+      <div>
         <StaticImage
-          className="w-full brightness-75 grayscale"
+          className="w-full brightness-75 "
           src="../images/homepage/image28.jpg"
           alt="hi"
           height={500}
@@ -24,34 +24,29 @@ const Home = () => {
         quoteBold="to je život"
       />
 
-      <div className=" grid grid-cols-2 gap-2 px-2  lg:grid-cols-6">
+      <div className=" grid grid-cols-1 gap-3 px-2  lg:grid-cols-5">
         <StaticImage
-          className="w-full h-72 brightness-75 grayscale lg:mb-8"
+          className="w-full h-72 brightness-75 lg:mb-10  "
           src="../images/homepage/image28.jpg"
           alt="hi"
         />
         <StaticImage
-          className="w-full brightness-75 h-72 grayscale lg:mt-8"
+          className="w-full brightness-75 h-72  lg:mt-10"
           src="../images/homepage/image28.jpg"
           alt="hi"
         />
         <StaticImage
-          className="w-full brightness-75 h-72 grayscale lg:mb-8"
+          className="w-full brightness-75 h-72  lg:mb-10"
           src="../images/homepage/image28.jpg"
           alt="hi"
         />
         <StaticImage
-          className="w-full brightness-75 h-72 grayscale lg:mt-8"
+          className="w-full brightness-75 h-72  lg:mt-10"
           src="../images/homepage/image28.jpg"
           alt="hi"
         />
         <StaticImage
-          className="w-full brightness-75 h-72 grayscale lg:mb-8"
-          src="../images/homepage/image28.jpg"
-          alt="hi"
-        />
-        <StaticImage
-          className="w-full brightness-75 h-72 grayscale lg:mt-8"
+          className="w-full brightness-75 h-72  lg:mb-10"
           src="../images/homepage/image28.jpg"
           alt="hi"
         />

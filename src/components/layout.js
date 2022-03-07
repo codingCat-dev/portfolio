@@ -1,11 +1,11 @@
-import React, { useState } from "react"
+import * as React from "react"
 import Navigation from "./navigation"
 import Footer from "../components/footer"
 
 const Layout = props => {
   return (
     <>
-      <div className="overflow-hidden text-center">
+      <div className="overflow-hidden my-12 text-center lg:mt-32 ">
         <Navigation />
         <main className="mx-auto container">{props.children}</main>
         <Footer />

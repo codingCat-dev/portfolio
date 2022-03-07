@@ -4,7 +4,7 @@ import { StaticImage } from "gatsby-plugin-image"
 const Navigation = () => {
   const navigationLinks = [
     { linkName: "Domů", path: "../home" },
-    { linkName: "O mne", path: "../portfolio" },
+    { linkName: "O mne", path: "../about" },
     { linkName: "Cenik", path: "../portfolio" },
     { linkName: "Portfolio", path: "../portfolio" },
     { linkName: "Kontakt", path: "../portfolio" },

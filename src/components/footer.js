@@ -3,31 +3,34 @@ import { Link } from "gatsby"
 
 const Footer = () =>
   // prettier-ignore
-  <footer className="pt-6 bg-blue-100 font-light text-center container lg:pt-12">
+  <footer className="pt-6 font-light bg-blue-50 text-center  lg:pt-12">
     <div className="text-sm tracking-tighter" role="navigation" aria-label="social-links">
       <h4 className="uppercase mb-1">seznamte se se mnou</h4>
-      <a className="block" href="https://wa.me/15551234567" target="_blank">
-        777/777-444
-      </a>
-      <a className="block " href="mailto:mail@gmail.com" target="_blank">
-        someemail@email.com
-      </a>
-      <a className="block"
+      <div className="flex justify-center items-center mt-4">
+      <a className="mx-2"
        href="https://www.facebook.com/Al%C5%BEb%C4%9Bta-%C5%98%C3%ADmanov%C3%A1-fotograf-450529322192872/?ref=page_internal"
-        target="_blank">
+        target="_blank" rel="noreferrer">
         Facebook
       </a>
-      <a className="block"
+      <a className="mx-2"
         href="https://www.facebook.com/Al%C5%BEb%C4%9Bta-%C5%98%C3%ADmanov%C3%A1-fotograf-450529322192872/?ref=page_internal"
-        target="_blank">
+        target="_blank" rel="noreferrer">
         Instagram
       </a>
+      <a className="mx-2" href="https://wa.me/15551234567" target="_blank" rel="noreferrer">
+        Whats'app
+      </a>
+      <a className="mx-2" href="mailto:mail@gmail.com" target="_blank" rel="noreferrer">
+        E-mail
+      </a>
+    
+      </div>
     </div>
-    <div role="navigation" aria-label="privacy-policy" className="mt-6 bg-gradient-to-t from-gray-800 via-gray-900 to-black text-gray-100 text-xs py-1  tracking-wide lg:mt-12">
+    <div role="navigation" aria-label="privacy-policy" className="mt-4 bg-gradient-to-t from-gray-800 via-gray-900 to-black text-gray-100 text-xs py-2  tracking-wide lg:mt-4">
         <ul className="flex items-center justify-evenly flex-col lg:flex-row">
-          <li><Link to="./">Právní varování</Link></li>
-          <li><Link to="./">Zásady ochrany osobních údajů</Link></li>
-          <li><Link to="./">Zásady cookies</Link></li>
+          <li><Link to="../privacypolicy">Právní varování</Link></li>
+          <li><Link to="../privacypolicy">Zásady ochrany osobních údajů</Link></li>
+          <li><Link to="../privacypolicy">Zásady cookies</Link></li>
         </ul>
       </div>
   </footer>

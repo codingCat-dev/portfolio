@@ -2,7 +2,7 @@ import * as React from "react"
 import Testimonial from "react-testimonial"
 // array map does not work on this component!
 const TestimonialSlider = () => (
-  <article className="py-6 my-12 border border-gray-300 lg:my-24 lg:py-10">
+  <article className="py-6 my-12 border-t border-b border-gray-400 lg:my-24 lg:py-10">
     <h3 className="uppercase font-noto text-3xl ">pěkná slova</h3>
     <Testimonial timer={100}>
       <div className="font-extralight px-3 mx-auto lg:w-2/3 lg:px-0 ">
