@@ -1,13 +1,13 @@
 import * as React from "react"
 import { StaticImage } from "gatsby-plugin-image"
 import Layout from "../components/layout"
-import Testimonial from "../components/testimonial"
+import TestimonialSlider from "../components/testimonialSlider"
 import Article from "../components/article"
 
 const Home = () => {
   return (
     <Layout>
-      <div className="mt-16 lg:mt-32 ">
+      <div className="my-12 lg:mt-32 ">
         <StaticImage
           className="w-full brightness-75 grayscale"
           src="../images/homepage/image28.jpg"
@@ -15,7 +15,6 @@ const Home = () => {
           height={500}
         />
       </div>
-
       <Article
         title="Přinutím tě si vzpomenout"
         text="Jsou okamžiky, které se stanou jen jednou za život, letmá objetí, oči,
@@ -25,7 +24,7 @@ const Home = () => {
         quoteBold="to je život"
       />
 
-      <div className="mt-24 grid grid-cols-2 gap-2 px-2  lg:grid-cols-6">
+      <div className=" grid grid-cols-2 gap-2 px-2  lg:grid-cols-6">
         <StaticImage
           className="w-full h-72 brightness-75 grayscale lg:mb-8"
           src="../images/homepage/image28.jpg"
@@ -57,10 +56,7 @@ const Home = () => {
           alt="hi"
         />
       </div>
-      <div className=" mt-24 bg-cyan-50 font-extralight">
-        <h4 className="uppercase font-noto text-3xl pt-12">pěkná slova</h4>
-        <Testimonial />
-      </div>
+      <TestimonialSlider />
     </Layout>
   )
 }

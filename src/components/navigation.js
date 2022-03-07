@@ -11,7 +11,8 @@ const Navigation = () => {
   ]
 
   return (
-    <nav className="flex flex-col bg-white fixed top-0 container left-1/2 -translate-x-1/2   font-extralight tracking-tight text-xs z-30 lg:text-base uppercase lg:py-2">
+    // prettier-ignore
+    <nav aria-label="primary" className="flex flex-col bg-white fixed top-0 container left-1/2 -translate-x-1/2   font-extralight tracking-tight text-xs z-30 lg:text-base uppercase lg:py-2">
       <div className="flex justify-center">
         <StaticImage
           src="../images/logo/logo.png"

@@ -7,7 +7,7 @@ const Layout = props => {
     <>
       <div className="overflow-hidden text-center">
         <Navigation />
-        <main className="mx-auto container ">{props.children}</main>
+        <main className="mx-auto container">{props.children}</main>
         <Footer />
       </div>
     </>

@@ -1,47 +1,35 @@
 import * as React from "react"
 import { Link } from "gatsby"
 
-const Footer = () => {
-  return (
-    <footer className="py-8  flex justify-center items-center">
-      <div>
-        <Link to="../">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-10 w-10 mx-2"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={1}
-              d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"
-            />
-          </svg>
-        </Link>
+const Footer = () =>
+  // prettier-ignore
+  <footer className="pt-6 bg-blue-100 font-light text-center container lg:pt-12">
+    <div className="text-sm tracking-tighter" role="navigation" aria-label="social-links">
+      <h4 className="uppercase mb-1">seznamte se se mnou</h4>
+      <a className="block" href="https://wa.me/15551234567" target="_blank">
+        777/777-444
+      </a>
+      <a className="block " href="mailto:mail@gmail.com" target="_blank">
+        someemail@email.com
+      </a>
+      <a className="block"
+       href="https://www.facebook.com/Al%C5%BEb%C4%9Bta-%C5%98%C3%ADmanov%C3%A1-fotograf-450529322192872/?ref=page_internal"
+        target="_blank">
+        Facebook
+      </a>
+      <a className="block"
+        href="https://www.facebook.com/Al%C5%BEb%C4%9Bta-%C5%98%C3%ADmanov%C3%A1-fotograf-450529322192872/?ref=page_internal"
+        target="_blank">
+        Instagram
+      </a>
+    </div>
+    <div role="navigation" aria-label="privacy-policy" className="mt-6 bg-gradient-to-t from-gray-800 via-gray-900 to-black text-gray-100 text-xs py-1  tracking-wide lg:mt-12">
+        <ul className="flex items-center justify-evenly flex-col lg:flex-row">
+          <li><Link to="./">Právní varování</Link></li>
+          <li><Link to="./">Zásady ochrany osobních údajů</Link></li>
+          <li><Link to="./">Zásady cookies</Link></li>
+        </ul>
       </div>
-      <div>
-        <Link to="../">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-10 w-10 mx-2"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={1}
-              d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207"
-            />
-          </svg>
-        </Link>
-      </div>
-    </footer>
-  )
-}
+  </footer>
 
 export default Footer
